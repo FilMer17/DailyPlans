@@ -1,0 +1,106 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    background-color: gray;
+}
+
+.form {
+    padding: calc(1em + 3vh) calc(1em + 2vw);
+
+    width: calc(90vw + 3vw);
+    max-width: 520px;
+
+    background-color: white;
+}
+
+.form__subtitle {
+    margin-top: .5em;
+}
+
+.input-container {
+    position: relative;
+    height: 2em;
+    width: 100%;
+
+    margin-top: 2em;
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+    padding: .1em 1em 0;
+    
+    background-color: lightgray;
+    border: 0;
+    outline: 0;
+    font-size: 1.15em;
+}
+
+.label-box {
+    position: absolute;
+    top: -1.35em;
+    left: 1.25em;
+    height: 1.25em;
+    width: 8em;
+
+    transform: translateY(0);
+    transition: transform 400ms, color 400ms;
+
+    background-color: white;
+}
+
+.lb-short {
+    width: 3.5em;
+}
+
+.input__label {
+    position: absolute;
+    top: .3em;
+    left: 1.25em;
+
+    transform-origin: 0 50%;
+    transition: transform 400ms, color 400ms;
+
+    pointer-events: none;
+    color: white;
+    font-size: 1.15em;
+}
+
+.input:focus ~ .label-box,
+.input:not(:placeholder-shown) ~ .label-box {
+    transform: translateY(.45em);
+}
+
+.input:focus ~ .input__label,
+.input:not(:placeholder-shown) ~ .input__label {
+    transform: translateY(-1.1em) translateX(10px) scale(0.75);
+}
+
+.input:focus ~ .input__label {
+    color: #dc2f55;
+}
+
+.input:not(:placeholder-shown) ~ .input__label {
+    color: gray;
+}
+
+button {
+    position: block;
+
+    margin-top: 2em;
+    height: 2em;
+    width: 100%;
+}
